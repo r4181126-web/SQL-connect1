@@ -49,12 +49,10 @@ public class UserServiceTest {
             ) {
                 Assert.fail("User был некорректно добавлен в базу данных");
             }
-
         } catch (Exception e) {
             Assert.fail("Во время тестирования сохранения пользователя произошло исключение\n" + e);
         }
     }
-
     @Test
     public void removeUserById() {
         try {
@@ -66,7 +64,6 @@ public class UserServiceTest {
             Assert.fail("При тестировании удаления пользователя по id произошло исключение\n" + e);
         }
     }
-
     @Test
     public void getAllUsers() {
         try {
@@ -98,5 +95,4 @@ public class UserServiceTest {
             Assert.fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e);
         }
     }
-
 }
