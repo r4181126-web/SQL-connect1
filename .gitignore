@@ -1,6 +1,6 @@
 # Default ignored files
 .idea/
-.mvn/
+.mvn/wrapper
 target/
 # Editor-based HTTP Client requests
 /httpRequests/

@@ -13,6 +13,7 @@ public class Util {
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            connection.setAutoCommit(false);
         } catch (SQLException | ClassNotFoundException e) {
             System.err.println("Неудалось загрузить класс драйвера");
         }
