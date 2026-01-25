@@ -26,6 +26,7 @@ public class UserDaoJDBCImpl implements UserDao {
             Statement statement = connection.createStatement();
             statement.executeUpdate(createSequenceSql);
             statement.executeUpdate(sql);
+            connection.commit();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -36,6 +37,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Connection connection = Util.getConnection()) {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
+            connection.commit();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -49,6 +51,7 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.setString(2, lastName);
             preparedStatement.setByte(3, age);
             preparedStatement.executeUpdate();
+            connection.commit();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -60,6 +63,7 @@ public class UserDaoJDBCImpl implements UserDao {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
+            connection.commit();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -78,6 +82,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 user.setLastName(resultSet.getString("lastName"));
                 user.setAge(resultSet.getByte("age"));
                 list.add(user);
+                connection.commit();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -90,6 +95,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Connection connection = Util.getConnection()) {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
+            connection.commit();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
